@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QVW-EX-w7E">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--冬瓜听书📖-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="BooksViewController" customModule="listen_to_the_book" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sqP-NC-jSP">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cBd-JO-O1t">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="608"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0G4-Le-MRT">
+                                            <size key="itemSize" width="120" height="200"/>
+                                            <size key="estimatedItemSize" width="128" height="200"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BookCell" id="TRm-Ej-O1c">
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="200"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="R6n-hl-kGe">
+                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="200"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </collectionViewCellContentView>
+                                                <connections>
+                                                    <segue destination="ynj-kT-9Ji" kind="show" identifier="PDFSegue" id="6uI-1r-01d"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="S2U-zH-GTj"/>
+                                        </connections>
+                                    </collectionView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xrp-02-2rK">
+                                        <rect key="frame" x="0.0" y="608" width="414" height="200"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ZI-f7-V05">
+                                                <rect key="frame" x="0.0" y="122" width="414" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lrA-zd-ede">
+                                                <rect key="frame" x="103.5" y="98" width="207" height="4"/>
+                                            </progressView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="lrA-zd-ede" firstAttribute="centerX" secondItem="Xrp-02-2rK" secondAttribute="centerX" id="2Rz-ES-5q2"/>
+                                            <constraint firstAttribute="bottom" secondItem="7ZI-f7-V05" secondAttribute="bottom" constant="57.5" id="3Kz-m3-eP3"/>
+                                            <constraint firstItem="7ZI-f7-V05" firstAttribute="centerX" secondItem="Xrp-02-2rK" secondAttribute="centerX" id="ATP-pm-jhx"/>
+                                            <constraint firstItem="7ZI-f7-V05" firstAttribute="width" secondItem="Xrp-02-2rK" secondAttribute="width" id="T7B-RM-Kuu"/>
+                                            <constraint firstItem="7ZI-f7-V05" firstAttribute="top" secondItem="lrA-zd-ede" secondAttribute="bottom" constant="20" id="TCj-2H-8Y7"/>
+                                            <constraint firstAttribute="height" constant="200" id="oDu-Xc-UUh"/>
+                                            <constraint firstItem="lrA-zd-ede" firstAttribute="width" secondItem="Xrp-02-2rK" secondAttribute="width" multiplier="0.5" id="zrt-jj-KTA"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="sqP-NC-jSP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="E1m-JF-DAe"/>
+                            <constraint firstItem="sqP-NC-jSP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IC6-cZ-xbQ"/>
+                            <constraint firstAttribute="bottom" secondItem="sqP-NC-jSP" secondAttribute="bottom" id="mVk-RP-F4M"/>
+                            <constraint firstAttribute="trailing" secondItem="sqP-NC-jSP" secondAttribute="trailing" id="n8p-y3-vgZ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="冬瓜听书📖" id="0Pi-Cv-K2K"/>
+                    <connections>
+                        <outlet property="collectionView" destination="cBd-JO-O1t" id="WzY-RO-Mmz"/>
+                        <outlet property="readingLable" destination="7ZI-f7-V05" id="ogr-Mz-j7o"/>
+                        <outlet property="readingProgeress" destination="lrA-zd-ede" id="seY-Vb-9cE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="582.60869565217399" y="93.75"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="VaK-pk-5BK">
+            <objects>
+                <viewController id="ynj-kT-9Ji" customClass="PDFViewController" customModule="listen_to_the_book" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wUG-mj-LXC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSG-p0-UEg">
+                                <rect key="frame" x="189" y="833" width="41" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="play" catalog="system"/>
+                                <connections>
+                                    <action selector="startReading:" destination="ynj-kT-9Ji" eventType="touchUpInside" id="FfS-kT-LHc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xCx-61-ssX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                    </view>
+                    <navigationItem key="navigationItem" id="CYf-Ar-Kkb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K7Q-vk-SYO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1407" y="94"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Lov-eY-bNd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QVW-EX-w7E" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Nry-Rk-ccV">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="OIq-YA-JrW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aj3-J6-lUs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-323" y="95"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="play" catalog="system" width="120" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
