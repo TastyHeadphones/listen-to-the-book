@@ -32,14 +32,14 @@ class PDFViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
             super.viewDidLayoutSubviews()
-            pdfView.frame = view.safeAreaLayoutGuide.layoutFrame
+        pdfView.frame = CGRect(x: 0, y: 150, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 4 * 3)
         }
     
     override func viewWillAppear(_ animated: Bool) {
         //前往保存的页数
         guard let targetPage = document.page(at: book.page) else { return }
-
         pdfView.go(to: targetPage)
+        pdfView.accessibilityValue = "has read page in\(book!.page)"
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -62,6 +62,8 @@ class PDFViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        pdfView.isAccessibilityElement = true
+        pdfView.accessibilityLabel = book.name
         setupPDFView()
     }
     
@@ -73,7 +75,7 @@ class PDFViewController: UIViewController {
         isReading.toggle()
         if(isReading){
             sender.setImage(UIImage(systemName: "pause"), for: .normal)
-            let utterance = AVSpeechUtterance(string: "目录 序 第一部 卷一 第一章 第一部 卷一 第二章 第一部 卷一 第三章 第一部 卷一 第四章 第一部 卷一 第五章 第一部 卷一 第六章 第一部 卷一 第七章")
+            let utterance = AVSpeechUtterance(string: "Cryptocurrencies (e.g., Dime) serve as an economic bridge between the Metaverse and the real world, giving people deeper social meaning.")
             utterance.voice = AVSpeechSynthesisVoice(language: "zh-CN")
             utterance.rate = 0.4
             synthesizer.speak(utterance)

@@ -20,7 +20,7 @@ class Book{
     
     static var currentReadingBook:Book = Book.shared[0]
     
-    static let shared:[Book] = [Book(name: "IEEE Article", url: Bundle.main.url(forResource: "IEEE", withExtension: "pdf")!),Book(name: "平凡的世界", url: Bundle.main.url(forResource: "ordinary", withExtension: "pdf")!)]
+    static let shared:[Book] = [Book(name: "IEEE Article", url: Bundle.main.url(forResource: "IEEE", withExtension: "pdf")!),Book(name: "ordinary world", url: Bundle.main.url(forResource: "ordinary", withExtension: "pdf")!)]
     
 }
 

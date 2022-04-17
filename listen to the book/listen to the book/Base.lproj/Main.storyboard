@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--冬瓜听书📖-->
+        <!--Squash 📖-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="BooksViewController" customModule="listen_to_the_book" customModuleProvider="target" sceneMemberID="viewController">
@@ -32,7 +32,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BookCell" id="TRm-Ej-O1c">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BookCell" id="TRm-Ej-O1c" customClass="BookCell" customModule="listen_to_the_book" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="120" height="200"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="R6n-hl-kGe">
@@ -84,7 +84,7 @@
                             <constraint firstAttribute="trailing" secondItem="sqP-NC-jSP" secondAttribute="trailing" id="n8p-y3-vgZ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="冬瓜听书📖" id="0Pi-Cv-K2K"/>
+                    <navigationItem key="navigationItem" title="Squash 📖" id="0Pi-Cv-K2K"/>
                     <connections>
                         <outlet property="collectionView" destination="cBd-JO-O1t" id="WzY-RO-Mmz"/>
                         <outlet property="readingLable" destination="7ZI-f7-V05" id="ogr-Mz-j7o"/>

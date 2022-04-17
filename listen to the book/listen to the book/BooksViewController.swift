@@ -15,7 +15,6 @@ class BooksViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     
@@ -23,7 +22,9 @@ class BooksViewController: UIViewController {
         //获取当前读书及进度
         let book = Book.currentReadingBook
         readingProgeress.progress = book.rate
-        readingLable.text = "当前正在阅读 \(book.name)\n阅读到了第\(book.page)页"
+        readingProgeress.accessibilityLabel = "The book reading rate"
+        readingProgeress.accessibilityValue = "\(book.rate * 100) percent"
+        readingLable.text = "The book reading now is \(book.name)\n has read \(book.page) pages"
     }
     
     
@@ -36,7 +37,7 @@ extension BooksViewController: UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BookCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BookCell", for: indexPath) as! BookCell
         //设置书名信息
         let title = UILabel(frame: CGRect(x: 0, y: 0, width: cell.bounds.size.width, height: 15))
         title.text = Book.shared[indexPath.row].name
@@ -51,6 +52,10 @@ extension BooksViewController: UICollectionViewDataSource{
         cell.contentView.layer.masksToBounds = true
         title.translatesAutoresizingMaskIntoConstraints = false
         
+        //为title设置描述
+        cell.book = Book.shared[indexPath.row]
+        
+        //添加视图
         cell.contentView.addSubview(title)
         //设置约束
         NSLayoutConstraint.activate([
