@@ -9,7 +9,6 @@ import UIKit
 import PDFKit
 import AVFoundation
 
-
 class PDFViewController: UIViewController {
     
     private var pdfUrl: URL!
@@ -27,7 +26,6 @@ class PDFViewController: UIViewController {
         self.document = PDFDocument(url: pdfUrl)
         self.outline = document.outlineRoot
         pdfView.document = document
-        
     }
     
     override func viewDidLayoutSubviews() {
@@ -37,7 +35,7 @@ class PDFViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         //前往保存的页数
-        guard let targetPage = document.page(at: book.page) else { return }
+        guard let targetPage = document.page(at: book.page - 1) else { return }
         pdfView.go(to: targetPage)
         pdfView.accessibilityValue = "has read page in\(book!.page)"
     }
@@ -50,6 +48,13 @@ class PDFViewController: UIViewController {
         book.rate = Float(curPage!) / Float(sumPages!)
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        pdfView.isAccessibilityElement = true
+        pdfView.accessibilityLabel = book.name
+        setupPDFView()
+    }
+    
     private func setupPDFView() {
         view.insertSubview(pdfView, at: 0)
             pdfView.displayDirection = .horizontal
@@ -58,26 +63,15 @@ class PDFViewController: UIViewController {
             pdfView.autoScales = true
         }
     
- 
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        pdfView.isAccessibilityElement = true
-        pdfView.accessibilityLabel = book.name
-        setupPDFView()
-    }
-    
-    
-    
-    
-    
     @IBAction func readingButtonTapped(_ sender:UIButton){
         isReading.toggle()
         if(isReading){
             sender.setImage(UIImage(systemName: "pause"), for: .normal)
-            let utterance = AVSpeechUtterance(string: "Cryptocurrencies (e.g., Dime) serve as an economic bridge between the Metaverse and the real world, giving people deeper social meaning.")
+            let docPage = pdfView.currentPage
+            let docSrting = docPage?.attributedString
+            let utterance = AVSpeechUtterance(string: docSrting!.string)
             utterance.voice = AVSpeechSynthesisVoice(language: "zh-CN")
-            utterance.rate = 0.4
+            utterance.rate = 0.6
             synthesizer.speak(utterance)
         }
         else{

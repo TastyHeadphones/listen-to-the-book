@@ -38,19 +38,22 @@ extension BooksViewController: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BookCell", for: indexPath) as! BookCell
-        //设置书名信息
-        let title = UILabel(frame: CGRect(x: 0, y: 0, width: cell.bounds.size.width, height: 15))
+        //设置书名信息和书名标签约束
+        let title = UILabel(frame: CGRect(x: 0, y: 0, width: cell.contentView.bounds.size.width, height: 50))
+        title.lineBreakMode = .byCharWrapping
+        title.font = .preferredFont(forTextStyle: .title2)
+        title.numberOfLines = 0
         title.text = Book.shared[indexPath.row].name
         title.textColor = .white
         title.textAlignment = .center
-        
+        title.translatesAutoresizingMaskIntoConstraints = false
+        title.adjustsFontForContentSizeCategory = true
         //设置圆角矩形
         cell.contentView.layer.cornerRadius = 10
         cell.contentView.layer.borderWidth = 1.0
         cell.contentView.layer.borderColor = UIColor.blue.cgColor
         cell.contentView.backgroundColor = .systemBlue
         cell.contentView.layer.masksToBounds = true
-        title.translatesAutoresizingMaskIntoConstraints = false
         
         //为title设置描述
         cell.book = Book.shared[indexPath.row]

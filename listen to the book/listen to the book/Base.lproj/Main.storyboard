@@ -52,13 +52,13 @@
                                         <rect key="frame" x="0.0" y="608" width="414" height="200"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ZI-f7-V05">
-                                                <rect key="frame" x="0.0" y="122" width="414" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="0.0" y="125.5" width="414" height="17"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lrA-zd-ede">
-                                                <rect key="frame" x="103.5" y="98" width="207" height="4"/>
+                                                <rect key="frame" x="103.5" y="101.5" width="207" height="4"/>
                                             </progressView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
