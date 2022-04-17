@@ -6,16 +6,22 @@
 //
 
 import UIKit
+import Lottie
 
 class BooksViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var readingProgeress: UIProgressView!
     @IBOutlet var readingLable: UILabel!
+    @IBOutlet var lottieView: AnimationView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        // 设置动画视图
+        lottieView.contentMode = .scaleAspectFit
+        lottieView.loopMode = .loop
+        lottieView.animationSpeed = 0.5
+        lottieView.play()
     }
     
     override func viewWillAppear(_ animated: Bool) {

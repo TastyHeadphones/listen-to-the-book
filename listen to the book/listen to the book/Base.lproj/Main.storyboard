@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cBd-JO-O1t">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="608"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="508"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0G4-Le-MRT">
                                             <size key="itemSize" width="120" height="200"/>
@@ -48,6 +48,16 @@
                                             <outlet property="dataSource" destination="BYZ-38-t0r" id="S2U-zH-GTj"/>
                                         </connections>
                                     </collectionView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xxl-MO-61x" customClass="AnimationView" customModule="Lottie">
+                                        <rect key="frame" x="0.0" y="508" width="414" height="100"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="RVc-lT-DQc"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="book"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xrp-02-2rK">
                                         <rect key="frame" x="0.0" y="608" width="414" height="200"/>
                                         <subviews>
@@ -87,6 +97,7 @@
                     <navigationItem key="navigationItem" title="Squash 📖" id="0Pi-Cv-K2K"/>
                     <connections>
                         <outlet property="collectionView" destination="cBd-JO-O1t" id="WzY-RO-Mmz"/>
+                        <outlet property="lottieView" destination="xxl-MO-61x" id="cSD-e9-vtn"/>
                         <outlet property="readingLable" destination="7ZI-f7-V05" id="ogr-Mz-j7o"/>
                         <outlet property="readingProgeress" destination="lrA-zd-ede" id="seY-Vb-9cE"/>
                     </connections>
