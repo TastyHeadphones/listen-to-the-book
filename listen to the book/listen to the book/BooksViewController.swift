@@ -20,9 +20,10 @@ class BooksViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        //获取当前读书及进度
         let book = Book.currentReadingBook
         readingProgeress.progress = book.rate
-        readingLable.text = "当前正在阅读 \(book.name)"
+        readingLable.text = "当前正在阅读 \(book.name)\n阅读到了第\(book.page)页"
     }
     
     
@@ -36,12 +37,13 @@ extension BooksViewController: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BookCell", for: indexPath)
+        //设置书名信息
         let title = UILabel(frame: CGRect(x: 0, y: 0, width: cell.bounds.size.width, height: 15))
         title.text = Book.shared[indexPath.row].name
         title.textColor = .white
         title.textAlignment = .center
         
-        //增加圆角矩形
+        //设置圆角矩形
         cell.contentView.layer.cornerRadius = 10
         cell.contentView.layer.borderWidth = 1.0
         cell.contentView.layer.borderColor = UIColor.blue.cgColor
@@ -50,9 +52,9 @@ extension BooksViewController: UICollectionViewDataSource{
         title.translatesAutoresizingMaskIntoConstraints = false
         
         cell.contentView.addSubview(title)
-        
+        //设置约束
         NSLayoutConstraint.activate([
-            title.bottomAnchor.constraint(equalTo: cell.contentView.bottomAnchor,constant: -5),
+            title.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor,constant: 0),
             title.centerXAnchor.constraint(equalTo: cell.centerXAnchor)
         ])
         

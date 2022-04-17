@@ -6,5 +6,6 @@ target 'listen to the book' do
   use_frameworks!
 
   # Pods for listen to the book
+pod 'lottie-ios'
 
 end
